@@ -1,6 +1,6 @@
 {
-	"id": "44dadb31-87e1-4688-94c6-105cae4f6755",
-	"createdAt": "2023-04-11T15:25:17.000Z",
+	"id": "798940d3-d740-4826-aaac-00838047060e",
+	"createdAt": "2023-04-11T18:33:28.000Z",
 	"createdBy": "ole-andre.haugen@neptune-software.com",
 	"globalScripts": [],
 	"externalModules": [
@@ -13,8 +13,8 @@
 	],
 	"entitySets": [],
 	"apis": [],
-	"name": "UsersGET",
-	"ver": "23.4.11.2152",
+	"name": "UsersDELETE",
+	"ver": "23.4.11.2051",
 	"description": null,
 	"content": "file:///content.js",
 	"useAsGlobalScript": false,

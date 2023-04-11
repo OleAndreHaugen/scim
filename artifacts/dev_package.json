@@ -23,13 +23,38 @@
 	"dictionary": [],
 	"jsclass": [
 		{
+			"id": "a5330714-d3c1-4a73-b22d-25b257731e62",
+			"name": "ServiceProviderConfig",
+			"description": null
+		},
+		{
+			"id": "a033ea3f-4586-4781-84f4-8781ebcd78f3",
+			"name": "ResourceTypes",
+			"description": null
+		},
+		{
 			"id": "95b321ae-f5e7-4ffd-86c3-fc211a0c7a99",
 			"name": "GroupsGET",
 			"description": null
 		},
 		{
+			"id": "7a1db2c8-16d6-4aeb-ba92-f6ea0d830503",
+			"name": "Schemas",
+			"description": null
+		},
+		{
+			"id": "798940d3-d740-4826-aaac-00838047060e",
+			"name": "UsersDELETE",
+			"description": null
+		},
+		{
 			"id": "44dadb31-87e1-4688-94c6-105cae4f6755",
 			"name": "UsersGET",
+			"description": null
+		},
+		{
+			"id": "13fff35b-7492-45dd-b281-4fe70502fa2d",
+			"name": "UsersPATCH",
 			"description": null
 		}
 	],

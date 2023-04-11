@@ -2,6 +2,7 @@ const { Like, Any, IsNull } = operators;
 
 const manager = modules.typeorm.getConnection().manager;
 
+let mode = "List";
 let where = {};
 let Resources = [];
 
@@ -19,6 +20,7 @@ let options = {
         "name",
         "phone",
         "username",
+        "mobile",
     ],
     order: {},
     skip: 0,
@@ -34,9 +36,10 @@ if (req?.query?.sortBy) {
 }
 
 // Select By ID
-// if (req?.params?.id) {
-//     where.id = req.params.id;
-// }
+if (req?.params?.id) {
+    where.id = req.params.id;
+    mode = "User";
+}
 
 // Pagination
 if (req.query.startIndex) options.skip = req.query.startIndex;
@@ -53,8 +56,6 @@ options.relations = ["departments"];
 
 // Get User(s)
 const userData = await manager.find("users", options);
-
-const mode = userData.length > 1 ? "List" : "User";
 
 // Build Resources
 userData.forEach(function (user) {
@@ -94,6 +95,14 @@ userData.forEach(function (user) {
         });
     }
 
+    // Mobile
+    if (user.mobile) {
+        Resource.phoneNumbers.push({
+            type: "mobile",
+            value: user.mobile,
+        });
+    }
+
     // Groups
     if (user.departments) {
         user.departments.forEach(function (department) {
@@ -118,6 +127,9 @@ const schemaUsers = {
 };
 
 if (mode === "User") {
+    if (!Resources.length) {
+        result.statusCode = 404; // TODO: Does not work
+    }
     result.data = Resources[0];
 } else {
     result.data = schemaUsers;

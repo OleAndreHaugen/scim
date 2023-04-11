@@ -8,18 +8,9 @@
 		{
 			"id": "7bfa7f4b-3574-4a24-99bd-610fc35e0c3e",
 			"method": "GET",
-			"path": "/users/(id)",
-			"description": "",
+			"path": "/users",
+			"description": "List Users",
 			"parameters": [
-				{
-					"name": "id",
-					"description": "",
-					"required": false,
-					"inPath": true,
-					"value": "",
-					"default": "",
-					"example": ""
-				},
 				{
 					"name": "startIndex",
 					"description": "",
@@ -77,18 +68,9 @@
 		{
 			"id": "e775b10f-543a-44b7-bc02-81e381cd0afc",
 			"method": "GET",
-			"path": "/groups/(id)",
-			"description": "",
+			"path": "/groups",
+			"description": "List Groups",
 			"parameters": [
-				{
-					"name": "id",
-					"description": "",
-					"required": false,
-					"inPath": true,
-					"value": "",
-					"default": "",
-					"example": ""
-				},
 				{
 					"name": "startIndex",
 					"description": "",
@@ -142,13 +124,152 @@
 			"endpoints": [],
 			"tags": "Groups",
 			"serverScript": "95b321ae-f5e7-4ffd-86c3-fc211a0c7a99"
+		},
+		{
+			"id": "eb099481-34fd-4d22-9398-91d32e523ac0",
+			"method": "DELETE",
+			"path": "/users/(id)",
+			"description": "Delete User from ID",
+			"parameters": [
+				{
+					"name": "id",
+					"description": "",
+					"required": true,
+					"inPath": true,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [],
+			"responses": [],
+			"content": [],
+			"auth": [],
+			"endpoints": [],
+			"serverScript": "798940d3-d740-4826-aaac-00838047060e",
+			"tags": "Users"
+		},
+		{
+			"id": "2fae8d8c-bab6-4e4c-f6cd-b8ae5c45c43d",
+			"method": "GET",
+			"path": "/users/(id)",
+			"description": "Get User from ID",
+			"parameters": [
+				{
+					"name": "id",
+					"description": "",
+					"required": true,
+					"inPath": true,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [],
+			"responses": [],
+			"content": [],
+			"auth": [],
+			"endpoints": [],
+			"tags": "Users",
+			"serverScript": "44dadb31-87e1-4688-94c6-105cae4f6755",
+			"summary": ""
+		},
+		{
+			"id": "b8fe56bc-6f5b-4f4f-d53d-2e1ad347c434",
+			"method": "GET",
+			"path": "/groups/(id)",
+			"description": "Get Group from ID",
+			"parameters": [
+				{
+					"name": "id",
+					"description": "",
+					"required": false,
+					"inPath": true,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [],
+			"responses": [],
+			"content": [],
+			"auth": [],
+			"endpoints": [],
+			"tags": "Groups",
+			"serverScript": "95b321ae-f5e7-4ffd-86c3-fc211a0c7a99"
+		},
+		{
+			"id": "f48d64f1-4d99-41e4-86dd-e27d447ba5a4",
+			"method": "PATCH",
+			"path": "/users/(id)",
+			"description": "Update User from ID",
+			"parameters": [
+				{
+					"name": "id",
+					"description": "",
+					"required": true,
+					"inPath": true,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [],
+			"responses": [],
+			"content": [],
+			"auth": [],
+			"endpoints": [],
+			"serverScript": "13fff35b-7492-45dd-b281-4fe70502fa2d",
+			"tags": "Users"
+		},
+		{
+			"id": "b5f5cf71-a124-41ea-ee50-38d44c3af459",
+			"method": "GET",
+			"path": "/ServiceProviderConfig",
+			"description": "Specification compliance, authentication schemes, data models",
+			"parameters": [],
+			"headers": [],
+			"responses": [],
+			"content": [],
+			"auth": [],
+			"endpoints": [],
+			"tags": "Meta",
+			"serverScript": "a5330714-d3c1-4a73-b22d-25b257731e62"
+		},
+		{
+			"id": "009f54de-0293-4679-b67a-09d0b6c77986",
+			"method": "GET",
+			"path": "/Schemas",
+			"description": "Introspect resources and attribute extensions",
+			"parameters": [],
+			"headers": [],
+			"responses": [],
+			"content": [],
+			"auth": [],
+			"endpoints": [],
+			"serverScript": "7a1db2c8-16d6-4aeb-ba92-f6ea0d830503",
+			"tags": "Meta"
+		},
+		{
+			"id": "ee56e0d0-5629-4774-9cff-276c685b5416",
+			"method": "GET",
+			"path": "/ResourceTypes",
+			"description": "An endpoint used to discover the types of resources available",
+			"parameters": [],
+			"headers": [],
+			"responses": [],
+			"content": [],
+			"auth": [],
+			"endpoints": [],
+			"serverScript": "a033ea3f-4586-4781-84f4-8781ebcd78f3",
+			"tags": "Meta"
 		}
 	],
 	"definitions": [],
 	"documentation": [],
 	"name": "SCIM",
 	"endpoint": "/api/serverscript/scim",
-	"ver": "23.4.11.205",
+	"ver": "23.4.11.2144",
 	"version": "1.0",
 	"description": null,
 	"mediaType": "application/scim.json",

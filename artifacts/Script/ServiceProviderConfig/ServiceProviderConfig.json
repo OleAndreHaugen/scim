@@ -1,20 +1,13 @@
 {
-	"id": "44dadb31-87e1-4688-94c6-105cae4f6755",
-	"createdAt": "2023-04-11T15:25:17.000Z",
+	"id": "a5330714-d3c1-4a73-b22d-25b257731e62",
+	"createdAt": "2023-04-11T19:36:18.000Z",
 	"createdBy": "ole-andre.haugen@neptune-software.com",
 	"globalScripts": [],
-	"externalModules": [
-		{
-			"id": "c1e44158-f85b-48c3-85df-cd3bb1f6c7f4",
-			"name": "typeorm",
-			"contextname": "typeorm",
-			"path": "typeorm"
-		}
-	],
+	"externalModules": [],
 	"entitySets": [],
 	"apis": [],
-	"name": "UsersGET",
-	"ver": "23.4.11.2152",
+	"name": "ServiceProviderConfig",
+	"ver": "23.4.11.2139",
 	"description": null,
 	"content": "file:///content.js",
 	"useAsGlobalScript": false,

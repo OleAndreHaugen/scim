@@ -21,9 +21,9 @@ if (req?.query?.sortBy) {
 }
 
 // Select By ID
-// if (req?.params?.id) {
-//     where.id = req.params.id;
-// }
+if (req?.params?.id) {
+    where.id = req.params.id;
+}
 
 // Pagination
 if (req.query.startIndex) options.skip = req.query.startIndex;
