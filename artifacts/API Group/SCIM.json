@@ -1,0 +1,9 @@
+{
+	"id": "2665b916-5881-4a57-87b5-67e60d0227af",
+	"createdAt": "2023-04-11T15:25:57.000Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"name": "SCIM",
+	"description": "SCIM 2.0 Adapter",
+	"ver": "23.4.11.1725",
+	"package": "c1672a81-c0ee-443f-8c82-5a1f7fbe4989"
+}

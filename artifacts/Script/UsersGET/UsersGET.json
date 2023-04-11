@@ -1,0 +1,27 @@
+{
+	"id": "44dadb31-87e1-4688-94c6-105cae4f6755",
+	"createdAt": "2023-04-11T15:25:17.000Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"globalScripts": [],
+	"externalModules": [
+		{
+			"id": "c1e44158-f85b-48c3-85df-cd3bb1f6c7f4",
+			"name": "typeorm",
+			"contextname": "typeorm",
+			"path": "typeorm"
+		}
+	],
+	"entitySets": [],
+	"apis": [],
+	"name": "UsersGET",
+	"ver": "23.4.11.206",
+	"description": null,
+	"content": "file:///content.js",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": false,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "0e0fe78b-1d65-4a1e-9741-5d414f9a2fdc",
+	"package": "c1672a81-c0ee-443f-8c82-5a1f7fbe4989"
+}

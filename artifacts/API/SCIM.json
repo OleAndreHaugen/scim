@@ -1,0 +1,172 @@
+{
+	"id": "f50c9ae2-5e71-4e17-9300-02292bec8098",
+	"createdAt": "2023-04-11T15:26:22.000Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"auth": [],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "7bfa7f4b-3574-4a24-99bd-610fc35e0c3e",
+			"method": "GET",
+			"path": "/users/(id)",
+			"description": "",
+			"parameters": [
+				{
+					"name": "id",
+					"description": "",
+					"required": false,
+					"inPath": true,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "startIndex",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "count",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "sortBy",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "sortOrder",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "filter",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [],
+			"responses": [],
+			"content": [],
+			"auth": [],
+			"endpoints": [],
+			"serverScript": "44dadb31-87e1-4688-94c6-105cae4f6755",
+			"tags": "Users"
+		},
+		{
+			"id": "e775b10f-543a-44b7-bc02-81e381cd0afc",
+			"method": "GET",
+			"path": "/groups/(id)",
+			"description": "",
+			"parameters": [
+				{
+					"name": "id",
+					"description": "",
+					"required": false,
+					"inPath": true,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "startIndex",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "count",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "sortBy",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "sortOrder",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "filter",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [],
+			"responses": [],
+			"content": [],
+			"auth": [],
+			"endpoints": [],
+			"tags": "Groups",
+			"serverScript": "95b321ae-f5e7-4ffd-86c3-fc211a0c7a99"
+		}
+	],
+	"definitions": [],
+	"documentation": [],
+	"name": "SCIM",
+	"endpoint": "/api/serverscript/scim",
+	"ver": "23.4.11.205",
+	"version": "1.0",
+	"description": null,
+	"mediaType": "application/scim.json",
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "script",
+	"about": null,
+	"enableProxy": false,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": false,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": false,
+	"useOwnProcess": false,
+	"package": "c1672a81-c0ee-443f-8c82-5a1f7fbe4989",
+	"apiGroup": "2665b916-5881-4a57-87b5-67e60d0227af",
+	"apiFormat": 0,
+	"roles": []
+}

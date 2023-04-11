@@ -10,18 +10,48 @@
 	"ver": "23.4.11.1724",
 	"enableCICD": true,
 	"apps": [],
-	"api": [],
+	"api": [
+		{
+			"id": "f50c9ae2-5e71-4e17-9300-02292bec8098",
+			"name": "SCIM",
+			"description": null,
+			"apiGroup": "2665b916-5881-4a57-87b5-67e60d0227af"
+		}
+	],
 	"odataSource": [],
 	"odataMock": [],
 	"dictionary": [],
-	"jsclass": [],
-	"jsscript_group": [],
+	"jsclass": [
+		{
+			"id": "95b321ae-f5e7-4ffd-86c3-fc211a0c7a99",
+			"name": "GroupsGET",
+			"description": null
+		},
+		{
+			"id": "44dadb31-87e1-4688-94c6-105cae4f6755",
+			"name": "UsersGET",
+			"description": null
+		}
+	],
+	"jsscript_group": [
+		{
+			"id": "0e0fe78b-1d65-4a1e-9741-5d414f9a2fdc",
+			"name": "SCIM",
+			"description": null
+		}
+	],
 	"theme": [],
 	"pdf": [],
 	"rulesengine": [],
 	"reports": [],
 	"api_authentication": [],
-	"api_group": [],
+	"api_group": [
+		{
+			"id": "2665b916-5881-4a57-87b5-67e60d0227af",
+			"name": "SCIM",
+			"description": "SCIM 2.0 Adapter"
+		}
+	],
 	"tile": [],
 	"category": [],
 	"launchpad": [],
