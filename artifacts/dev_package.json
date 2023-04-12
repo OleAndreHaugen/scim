@@ -6,8 +6,8 @@
 		"remote": "https://github.com/OleAndreHaugen/scim"
 	},
 	"name": "neptunesoftware-scim",
-	"description": null,
-	"ver": "23.4.11.1724",
+	"description": "SCIM 2.0 Adapter",
+	"ver": "23.4.12.85",
 	"enableCICD": true,
 	"apps": [],
 	"api": [
@@ -34,7 +34,12 @@
 		},
 		{
 			"id": "95b321ae-f5e7-4ffd-86c3-fc211a0c7a99",
-			"name": "GroupsGET",
+			"name": "GroupsRead",
+			"description": null
+		},
+		{
+			"id": "85fe1f5e-cebe-4e8f-8a83-25b72a62cf8f",
+			"name": "UsersCreate",
 			"description": null
 		},
 		{
@@ -44,17 +49,27 @@
 		},
 		{
 			"id": "798940d3-d740-4826-aaac-00838047060e",
-			"name": "UsersDELETE",
+			"name": "UsersDelete",
+			"description": null
+		},
+		{
+			"id": "4ab8a787-2aaf-4923-9f1d-dd84ee2d67d4",
+			"name": "GroupsUpdate",
 			"description": null
 		},
 		{
 			"id": "44dadb31-87e1-4688-94c6-105cae4f6755",
-			"name": "UsersGET",
+			"name": "UsersRead",
+			"description": null
+		},
+		{
+			"id": "23516096-3612-41ea-98d3-0046ca24b58f",
+			"name": "Utils",
 			"description": null
 		},
 		{
 			"id": "13fff35b-7492-45dd-b281-4fe70502fa2d",
-			"name": "UsersPATCH",
+			"name": "UsersUpdate",
 			"description": null
 		}
 	],

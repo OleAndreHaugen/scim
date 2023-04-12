@@ -2,7 +2,18 @@
 	"id": "13fff35b-7492-45dd-b281-4fe70502fa2d",
 	"createdAt": "2023-04-11T19:08:58.000Z",
 	"createdBy": "ole-andre.haugen@neptune-software.com",
-	"globalScripts": [],
+	"globalScripts": [
+		{
+			"id": "23516096-3612-41ea-98d3-0046ca24b58f",
+			"name": "SCIM - Utils",
+			"contextname": "Utils"
+		},
+		{
+			"id": "23516096-3612-41ea-98d3-0046ca24b58f",
+			"name": "SCIM - Utils",
+			"contextname": "Utils"
+		}
+	],
 	"externalModules": [
 		{
 			"id": "c1e44158-f85b-48c3-85df-cd3bb1f6c7f4",
@@ -13,8 +24,8 @@
 	],
 	"entitySets": [],
 	"apis": [],
-	"name": "UsersPATCH",
-	"ver": "23.4.11.222",
+	"name": "UsersUpdate",
+	"ver": "23.4.12.733",
 	"description": null,
 	"content": "file:///content.js",
 	"useAsGlobalScript": false,

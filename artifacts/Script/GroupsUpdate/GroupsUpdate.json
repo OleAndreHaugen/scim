@@ -1,0 +1,33 @@
+{
+	"id": "4ab8a787-2aaf-4923-9f1d-dd84ee2d67d4",
+	"createdAt": "2023-04-12T05:38:17.000Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"globalScripts": [
+		{
+			"id": "23516096-3612-41ea-98d3-0046ca24b58f",
+			"name": "SCIM - Utils",
+			"contextname": "Utils"
+		}
+	],
+	"externalModules": [
+		{
+			"id": "c1e44158-f85b-48c3-85df-cd3bb1f6c7f4",
+			"name": "typeorm",
+			"contextname": "typeorm",
+			"path": "typeorm"
+		}
+	],
+	"entitySets": [],
+	"apis": [],
+	"name": "GroupsUpdate",
+	"ver": "23.4.12.84",
+	"description": null,
+	"content": "file:///content.js",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": false,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "0e0fe78b-1d65-4a1e-9741-5d414f9a2fdc",
+	"package": "c1672a81-c0ee-443f-8c82-5a1f7fbe4989"
+}

@@ -1,8 +1,14 @@
 {
-	"id": "44dadb31-87e1-4688-94c6-105cae4f6755",
-	"createdAt": "2023-04-11T15:25:17.000Z",
+	"id": "85fe1f5e-cebe-4e8f-8a83-25b72a62cf8f",
+	"createdAt": "2023-04-12T04:54:36.000Z",
 	"createdBy": "ole-andre.haugen@neptune-software.com",
-	"globalScripts": [],
+	"globalScripts": [
+		{
+			"id": "23516096-3612-41ea-98d3-0046ca24b58f",
+			"name": "SCIM - Utils",
+			"contextname": "Utils"
+		}
+	],
 	"externalModules": [
 		{
 			"id": "c1e44158-f85b-48c3-85df-cd3bb1f6c7f4",
@@ -13,8 +19,8 @@
 	],
 	"entitySets": [],
 	"apis": [],
-	"name": "UsersGET",
-	"ver": "23.4.11.2152",
+	"name": "UsersCreate",
+	"ver": "23.4.12.733",
 	"description": null,
 	"content": "file:///content.js",
 	"useAsGlobalScript": false,

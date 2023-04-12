@@ -183,7 +183,7 @@
 				{
 					"name": "id",
 					"description": "",
-					"required": false,
+					"required": true,
 					"inPath": true,
 					"value": "",
 					"default": "",
@@ -263,13 +263,51 @@
 			"endpoints": [],
 			"serverScript": "a033ea3f-4586-4781-84f4-8781ebcd78f3",
 			"tags": "Meta"
+		},
+		{
+			"id": "0aebf198-2b11-4fd6-f8f3-717ea20e212a",
+			"method": "POST",
+			"path": "/Users",
+			"description": "Create User",
+			"parameters": [],
+			"headers": [],
+			"responses": [],
+			"content": [],
+			"auth": [],
+			"endpoints": [],
+			"tags": "Users",
+			"serverScript": "85fe1f5e-cebe-4e8f-8a83-25b72a62cf8f"
+		},
+		{
+			"id": "a7b5ab41-aba1-4a8a-c406-3b393f07704e",
+			"method": "PATCH",
+			"path": "/groups/(id)",
+			"description": "Update Group from ID",
+			"parameters": [
+				{
+					"name": "id",
+					"description": "",
+					"required": true,
+					"inPath": true,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [],
+			"responses": [],
+			"content": [],
+			"auth": [],
+			"endpoints": [],
+			"serverScript": "4ab8a787-2aaf-4923-9f1d-dd84ee2d67d4",
+			"tags": "Groups"
 		}
 	],
 	"definitions": [],
 	"documentation": [],
 	"name": "SCIM",
 	"endpoint": "/api/serverscript/scim",
-	"ver": "23.4.11.2144",
+	"ver": "23.4.12.747",
 	"version": "1.0",
 	"description": null,
 	"mediaType": "application/scim.json",

@@ -2,6 +2,7 @@ const { Like, Any, IsNull } = operators;
 
 const manager = modules.typeorm.getConnection().manager;
 
+let mode = "List";
 let where = {};
 let Resources = [];
 
@@ -23,6 +24,7 @@ if (req?.query?.sortBy) {
 // Select By ID
 if (req?.params?.id) {
     where.id = req.params.id;
+    mode = "Get";
 }
 
 // Pagination
@@ -42,35 +44,11 @@ const groupData = await manager.find("department", options);
 
 // Build Resources
 groupData.forEach(function (group) {
-    let Resource = {
-        schemas: ["urn:ietf:params:scim:schemas:core:2.0:Group"],
-        meta: {
-            created: group.createdAt,
-            location: `${req.protocol}://${req.hostname}:${req.socket.localPort}/api/serverscript/scim/groups/${group.id}`,
-            lastModified: group.updatedAt,
-            resourceType: "Group",
-        },
-        id: group.id,
-        displayName: group.name,
-        members: [],
-    };
-
-    // Members
-    if (group.users) {
-        group.users.forEach(function (user) {
-            Resource.members.push({
-                display: user.name,
-                value: user.id,
-                $ref: `${req.protocol}://${req.hostname}:${req.socket.localPort}/api/serverscript/scim/users/${user.id}`,
-            });
-        });
-    }
-
-    Resources.push(Resource);
+    Resources.push(globals.Utils.GroupSchema(req, group));
 });
 
 // Response
-const schema = {
+const ListResponse = {
     startIndex: parseInt(options.skip),
     totalResults: groupCount,
     itemsPerPage: parseInt(options.take),
@@ -78,11 +56,17 @@ const schema = {
     Resources: Resources,
 };
 
-if (Resources.length === 1) {
-    result.data = Resources[0];
+if (mode === "Get") {
+    if (!Resources.length) {
+        result.data = "No group found";
+        result.statusCode = 404;
+    } else {
+        result.data = Resources[0];
+        result.contentType = "application/scim+json";
+    }
 } else {
-    result.data = schema;
+    result.data = ListResponse;
+    result.contentType = "application/scim+json";
 }
 
-result.contentType = "application/scim+json";
 complete();

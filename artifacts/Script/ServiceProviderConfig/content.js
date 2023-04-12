@@ -35,7 +35,7 @@ const config = {
             description: "Authentication scheme using the HTTP Bearer token",
             specUri: "http://www.rfc-editor.org/info/rfc2617",
             documentationUri: "",
-            type: "httpbasic",
+            type: "httpbearer",
         },
     ],
     meta: {
