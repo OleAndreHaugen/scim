@@ -8,16 +8,14 @@ let options = {
 let userCreate = {};
 
 // Merge Data
-if (req.body?.idpSource) userCreate.idpSource = req.body.idpSource;
-
 if (req.body?.active === false) userCreate.locked = true;
 if (req.body?.active === true) userCreate.locked = false;
 
 if (req.body?.name?.formatted) userCreate.name = req.body.name.formatted;
 if (req.body?.userName) userCreate.username = req.body.userName;
 
-if (req.body?.language) {
-    userCreate.language = req.body.language;
+if (req.body?.preferredLanguage) {
+    userCreate.language = req.body.preferredLanguage;
 } else {
     userCreate.language = "EN";
 }
@@ -45,6 +43,11 @@ userCreate.createdAt = new Date();
 userCreate.updatedAt = new Date();
 userCreate.changedBy = "scim";
 userCreate.createdBy = "scim";
+
+// Neptune Schema
+if (req.body["urn:neptune:User"] && req.body["urn:neptune:User"].idpSource) {
+    userCreate.idpSource = req.body["urn:neptune:User"].idpSource;
+}
 
 // Create User
 const createRec = await manager.save("users", userCreate);

@@ -8,7 +8,7 @@
 		{
 			"id": "7bfa7f4b-3574-4a24-99bd-610fc35e0c3e",
 			"method": "GET",
-			"path": "/users",
+			"path": "/Users",
 			"description": "List Users",
 			"parameters": [
 				{
@@ -68,7 +68,7 @@
 		{
 			"id": "e775b10f-543a-44b7-bc02-81e381cd0afc",
 			"method": "GET",
-			"path": "/groups",
+			"path": "/Groups",
 			"description": "List Groups",
 			"parameters": [
 				{
@@ -128,7 +128,7 @@
 		{
 			"id": "eb099481-34fd-4d22-9398-91d32e523ac0",
 			"method": "DELETE",
-			"path": "/users/(id)",
+			"path": "/Users/(id)",
 			"description": "Delete User from ID",
 			"parameters": [
 				{
@@ -152,7 +152,7 @@
 		{
 			"id": "2fae8d8c-bab6-4e4c-f6cd-b8ae5c45c43d",
 			"method": "GET",
-			"path": "/users/(id)",
+			"path": "/Users/(id)",
 			"description": "Get User from ID",
 			"parameters": [
 				{
@@ -177,7 +177,7 @@
 		{
 			"id": "b8fe56bc-6f5b-4f4f-d53d-2e1ad347c434",
 			"method": "GET",
-			"path": "/groups/(id)",
+			"path": "/Groups/(id)",
 			"description": "Get Group from ID",
 			"parameters": [
 				{
@@ -201,7 +201,7 @@
 		{
 			"id": "f48d64f1-4d99-41e4-86dd-e27d447ba5a4",
 			"method": "PUT",
-			"path": "/users/(id)",
+			"path": "/Users/(id)",
 			"description": "Update User from ID",
 			"parameters": [
 				{
@@ -281,7 +281,7 @@
 		{
 			"id": "a7b5ab41-aba1-4a8a-c406-3b393f07704e",
 			"method": "PATCH",
-			"path": "/groups/(id)",
+			"path": "/Groups/(id)",
 			"description": "Update Group from ID",
 			"parameters": [
 				{
@@ -307,7 +307,7 @@
 	"documentation": [],
 	"name": "SCIM",
 	"endpoint": "/api/serverscript/scim",
-	"ver": "23.4.12.100",
+	"ver": "23.4.12.2014",
 	"version": "1.0",
 	"description": null,
 	"mediaType": "application/scim.json",

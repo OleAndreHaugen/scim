@@ -28,7 +28,7 @@ if (req?.params?.id) {
 }
 
 // Pagination
-if (req.query.startIndex) options.skip = req.query.startIndex;
+if (req.query.startIndex) options.skip = req.query.startIndex - 1;
 if (req.query.count) options.take = req.query.count;
 
 // TODO: more filters
@@ -50,7 +50,7 @@ userData.forEach(function (user) {
 
 // Response
 const ListResponse = {
-    startIndex: parseInt(options.skip),
+    startIndex: parseInt(options.skip + 1),
     totalResults: userCount,
     itemsPerPage: parseInt(options.take),
     schemas: ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],

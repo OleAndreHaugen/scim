@@ -1,6 +1,6 @@
 function UserSchema(req, user) {
     let Resource = {
-        schemas: ["urn:ietf:params:scim:schemas:core:2.0:User"],
+        schemas: ["urn:ietf:params:scim:schemas:core:2.0:User", "urn:neptune:User"],
         meta: {
             created: user.createdAt,
             location: `${req.protocol}://${req.hostname}:${req.socket.localPort}/api/serverscript/scim/users/${user.id}`,
@@ -13,11 +13,14 @@ function UserSchema(req, user) {
         active: user.locked ? false : true,
         id: user.id,
         userName: user.username,
-        idpSource: user.idpSource,
-        language: user.language,
+
+        preferredLanguage: user.language,
         emails: [],
         groups: [],
         phoneNumbers: [],
+        "urn:neptune:User": {
+            idpSource: user.idpSource,
+        },
     };
 
     // eMail
