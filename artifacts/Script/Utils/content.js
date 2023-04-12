@@ -3,7 +3,7 @@ function UserSchema(req, user) {
         schemas: ["urn:ietf:params:scim:schemas:core:2.0:User", "urn:neptune:User"],
         meta: {
             created: user.createdAt,
-            location: `${req.protocol}://${req.hostname}:${req.socket.localPort}/api/serverscript/scim/users/${user.id}`,
+            location: `${req.protocol}://${req.hostname}:${req.socket.localPort}/api/serverscript/scim/Users/${user.id}`,
             lastModified: user.updatedAt,
             resourceType: "User",
         },
@@ -54,7 +54,7 @@ function UserSchema(req, user) {
             Resource.groups.push({
                 display: department.name,
                 value: department.id,
-                $ref: `${req.protocol}://${req.hostname}:${req.socket.localPort}/api/serverscript/scim/groups/${department.id}`,
+                $ref: `${req.protocol}://${req.hostname}:${req.socket.localPort}/api/serverscript/scim/Groups/${department.id}`,
             });
         });
     }
@@ -86,7 +86,7 @@ function GroupSchema(req, group) {
         schemas: ["urn:ietf:params:scim:schemas:core:2.0:Group"],
         meta: {
             created: group.createdAt,
-            location: `${req.protocol}://${req.hostname}:${req.socket.localPort}/api/serverscript/scim/groups/${group.id}`,
+            location: `${req.protocol}://${req.hostname}:${req.socket.localPort}/api/serverscript/scim/Groups/${group.id}`,
             lastModified: group.updatedAt,
             resourceType: "Group",
         },
@@ -101,7 +101,7 @@ function GroupSchema(req, group) {
             Resource.members.push({
                 display: user.username,
                 value: user.id,
-                $ref: `${req.protocol}://${req.hostname}:${req.socket.localPort}/api/serverscript/scim/users/${user.id}`,
+                $ref: `${req.protocol}://${req.hostname}:${req.socket.localPort}/api/serverscript/scim/Users/${user.id}`,
             });
         });
     }
