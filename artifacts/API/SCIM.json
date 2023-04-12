@@ -200,7 +200,7 @@
 		},
 		{
 			"id": "f48d64f1-4d99-41e4-86dd-e27d447ba5a4",
-			"method": "PATCH",
+			"method": "PUT",
 			"path": "/users/(id)",
 			"description": "Update User from ID",
 			"parameters": [
@@ -307,7 +307,7 @@
 	"documentation": [],
 	"name": "SCIM",
 	"endpoint": "/api/serverscript/scim",
-	"ver": "23.4.12.747",
+	"ver": "23.4.12.100",
 	"version": "1.0",
 	"description": null,
 	"mediaType": "application/scim.json",
