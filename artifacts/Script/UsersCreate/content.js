@@ -47,6 +47,16 @@ userCreate.createdBy = "scim";
 // Neptune Schema
 if (req.body["urn:neptune:User"] && req.body["urn:neptune:User"].idpSource) {
     userCreate.idpSource = req.body["urn:neptune:User"].idpSource;
+} else {
+    result.data = {
+        schemas: ["urn:ietf:params:scim:api:messages:2.0:Error"],
+        detail:
+            'Error while executing API script: UsersCreate: null value in column "idpSource" of relation "users" violates not-null constraint',
+        status: "400",
+    };
+    result.contentType = "application/scim+json";
+    result.statusCode = 400;
+    return complete();
 }
 
 // Create User
