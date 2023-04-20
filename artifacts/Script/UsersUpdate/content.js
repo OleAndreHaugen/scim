@@ -54,17 +54,3 @@ result.contentType = "application/scim+json";
 
 complete();
 
-$.ajax({
-    type: "GET",
-    url:
-        "http://localhost:8080/proxy/" +
-        encodeURIComponent("https://p9new.neptune-software.com/api/serverscript/scim/users"),
-    headers: {
-        Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVkMWFhY2E3LTZiYjItNDdlNS1hYTRkLTE4YWFkMDZiZWNmNCIsInV1aWQiOiIwZjViNGJhMy1hMDkzLTQ2MzItYmU1Zi1mZGNlOTFhYWMwNTMiLCJpYXQiOjE2ODEyMzY3NzUsImV4cCI6MTc2NzU1MDM3NX0.CMT2Fr_6D4Ai_m1TF64EWDe2iWaSEk9x7q5lYhtmp2Q",
-    },
-    success: function (res) {
-        console.log(res);
-    },
-    error: function (e, t) {},
-});
