@@ -10,7 +10,7 @@ const config = {
         maxPayloadSize: 0,
     },
     filter: {
-        supported: false,
+        supported: true,
         maxResults: 1000,
     },
     changePassword: {

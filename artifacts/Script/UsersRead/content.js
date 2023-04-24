@@ -1,4 +1,4 @@
-const { Like, Any, IsNull } = operators;
+const { Like, Any, IsNull, Not } = operators;
 
 const manager = modules.typeorm.getConnection().manager;
 
@@ -31,6 +31,69 @@ if (req?.params?.id) {
 if (req.query.startIndex) options.skip = req.query.startIndex - 1;
 if (req.query.count) options.take = req.query.count;
 
+// Filters
+if (req?.query?.filter) {
+    // For now only supporting 1 query
+    let filter = req.query.filter.split(" ");
+    let filterField = filter[0];
+    let filterOperator = filter[1].toLowerCase();
+    let filterValue = filter[2].replace(/"/g, "");
+
+    // filterField
+    switch (filterField) {
+        case "preferredLanguage":
+            filterField = "language";
+            break;
+
+        case "active":
+            filterField = "locked";
+            break;
+
+        case "userName":
+            filterField = "username";
+            break;
+
+        default:
+            break;
+    }
+
+    // filterValue
+    switch (filterValue) {
+        case "true":
+            if (filterField === "locked") {
+                filterValue = false;
+            } else {
+                filterValue = true;
+            }
+            break;
+
+        case "false":
+            if (filterField === "locked") {
+                filterValue = true;
+            } else {
+                filterValue = false;
+            }
+            break;
+
+        default:
+            break;
+    }
+
+    // filterOperator
+    switch (filterOperator) {
+        case "eq":
+            where[filterField] = filterValue;
+            break;
+
+        case "ne":
+            where[filterField] = Not(filterValue);
+            break;
+
+        default:
+            break;
+    }
+}
+
 // TODO: more filters
 options.where = where;
 
@@ -50,6 +113,7 @@ userData.forEach(function (user) {
 
 // Response
 const ListResponse = {
+    where,
     startIndex: parseInt(options.skip + 1),
     totalResults: userCount,
     itemsPerPage: parseInt(options.take),
