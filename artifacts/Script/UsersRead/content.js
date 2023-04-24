@@ -113,7 +113,6 @@ userData.forEach(function (user) {
 
 // Response
 const ListResponse = {
-    where,
     startIndex: parseInt(options.skip + 1),
     totalResults: userCount,
     itemsPerPage: parseInt(options.take),
