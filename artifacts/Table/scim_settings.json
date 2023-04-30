@@ -1,0 +1,33 @@
+{
+	"id": "95bd7c81-c578-490a-87bf-048b4f4474f9",
+	"createdAt": "2023-04-30T07:28:15.000Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"fields": [
+		{
+			"id": "613a7cba-2305-461f-ac18-4962ef06143c",
+			"fieldName": "name",
+			"fieldType": "smalltext",
+			"isUnique": false,
+			"description": "Name",
+			"isNullable": true
+		},
+		{
+			"id": "2fe550fc-1375-4890-cf2c-8f6404c33711",
+			"fieldName": "value",
+			"fieldType": "text",
+			"isUnique": false,
+			"description": "Value",
+			"isNullable": true
+		}
+	],
+	"indices": [],
+	"foreignKeys": [],
+	"name": "scim_settings",
+	"description": "SCIM: Server Settings",
+	"ver": "23.4.30.928",
+	"enableAudit": false,
+	"includeDataInPackage": false,
+	"package": "c1672a81-c0ee-443f-8c82-5a1f7fbe4989",
+	"rolesRead": [],
+	"rolesWrite": []
+}

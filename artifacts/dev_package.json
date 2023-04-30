@@ -20,7 +20,13 @@
 	],
 	"odataSource": [],
 	"odataMock": [],
-	"dictionary": [],
+	"dictionary": [
+		{
+			"id": "95bd7c81-c578-490a-87bf-048b4f4474f9",
+			"name": "scim_settings",
+			"description": "SCIM: Server Settings"
+		}
+	],
 	"jsclass": [
 		{
 			"id": "a5330714-d3c1-4a73-b22d-25b257731e62",

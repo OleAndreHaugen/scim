@@ -4,10 +4,16 @@
 	"createdBy": "ole-andre.haugen@neptune-software.com",
 	"globalScripts": [],
 	"externalModules": [],
-	"entitySets": [],
+	"entitySets": [
+		{
+			"id": "95bd7c81-c578-490a-87bf-048b4f4474f9",
+			"name": "scim_settings",
+			"contextname": "scim_settings"
+		}
+	],
 	"apis": [],
 	"name": "Utils",
-	"ver": "23.4.30.920",
+	"ver": "23.4.30.938",
 	"description": null,
 	"content": "file:///content.js",
 	"useAsGlobalScript": true,

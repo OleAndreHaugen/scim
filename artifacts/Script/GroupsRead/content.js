@@ -43,9 +43,10 @@ options.relations = ["users"];
 const groupData = await manager.find("department", options);
 
 // Build Resources
-groupData.forEach(function (group) {
-    Resources.push(globals.Utils.GroupSchema(req, group));
-});
+for (i = 0; i < groupData.length; i++) {
+    const group = groupData[i];
+    Resources.push(await globals.Utils.GroupSchema(req, group));
+}
 
 // Response
 const ListResponse = {

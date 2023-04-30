@@ -49,7 +49,7 @@ userExists.changedBy = "scim";
 // Update User
 const user = await manager.save("users", userExists);
 
-result.data = globals.Utils.UserSchema(req, user);
+result.data = await globals.Utils.UserSchema(req, user);
 result.contentType = "application/scim+json";
 
 complete();

@@ -82,7 +82,7 @@ options.where = { id: createRec.id };
 // Get User
 const user = await manager.findOne("users", options);
 
-result.data = globals.Utils.UserSchema(req, user);
+result.data = await globals.Utils.UserSchema(req, user);
 result.contentType = "application/scim+json";
 result.statusCode = 201;
 

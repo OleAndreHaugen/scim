@@ -107,9 +107,10 @@ options.relations = ["departments"];
 const userData = await manager.find("users", options);
 
 // Build Resources
-userData.forEach(function (user) {
-    Resources.push(globals.Utils.UserSchema(req, user));
-});
+for (i = 0; i < userData.length; i++) {
+    const user = userData[i];
+    Resources.push(await globals.Utils.UserSchema(req, user));
+}
 
 // Response
 const ListResponse = {

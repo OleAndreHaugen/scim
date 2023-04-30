@@ -56,7 +56,7 @@ if (req.body?.Operations) {
 // Update User
 const group = await manager.save("department", groupExists);
 
-result.data = globals.Utils.GroupSchema(req, group);
+result.data = await globals.Utils.GroupSchema(req, group);
 result.contentType = "application/scim+json";
 
 complete();
