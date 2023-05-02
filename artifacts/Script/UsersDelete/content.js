@@ -12,8 +12,8 @@ if (!userExists) {
 // Delete User
 const userDeleted = await manager.delete("users", req.params.id);
 
-result.data = " ";
-result.statusCode = 404;
+result.data = "";
+result.statusCode = 204;
 
 complete();
 
