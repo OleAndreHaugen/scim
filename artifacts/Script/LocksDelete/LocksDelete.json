@@ -1,0 +1,27 @@
+{
+	"id": "de4ac6b3-7912-43e3-9a9e-069a424a8ae6",
+	"createdAt": "2023-08-16T13:49:56.000Z",
+	"createdBy": "ole-andre.haugen@neptune-software.com",
+	"globalScripts": [],
+	"externalModules": [
+		{
+			"id": "c1e44158-f85b-48c3-85df-cd3bb1f6c7f4",
+			"name": "typeorm",
+			"contextname": "typeorm",
+			"path": "typeorm"
+		}
+	],
+	"entitySets": [],
+	"apis": [],
+	"name": "LocksDelete",
+	"ver": "23.8.16.1550",
+	"description": null,
+	"content": "file:///content.js",
+	"useAsGlobalScript": false,
+	"transpiledContent": null,
+	"lastRunSuccessful": false,
+	"isTypescript": false,
+	"language": "javascript",
+	"jsscriptGroup": "0e0fe78b-1d65-4a1e-9741-5d414f9a2fdc",
+	"package": "c1672a81-c0ee-443f-8c82-5a1f7fbe4989"
+}
