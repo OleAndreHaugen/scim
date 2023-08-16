@@ -56,6 +56,17 @@ if (req.body?.Operations) {
 // Update User
 const group = await manager.save("department", groupExists);
 
+// Audit Log
+await manager.save("audit_log", {
+    content: JSON.stringify(groupExists),
+    objectType: "Department",
+    objectKey: groupExists.id,
+    action: "Save",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    changedBy: "scim",
+});
+
 result.data = await globals.Utils.GroupSchema(req, group);
 result.contentType = "application/scim+json";
 

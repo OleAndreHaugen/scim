@@ -82,6 +82,17 @@ options.where = { id: createRec.id };
 // Get User
 const user = await manager.findOne("users", options);
 
+// Audit Log
+await manager.save("audit_log", {
+    content: JSON.stringify(user),
+    objectType: "User",
+    objectKey: "New",
+    action: "Save",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    changedBy: "scim",
+});
+
 result.data = await globals.Utils.UserSchema(req, user);
 result.contentType = "application/scim+json";
 result.statusCode = 201;

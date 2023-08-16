@@ -49,8 +49,18 @@ userExists.changedBy = "scim";
 // Update User
 const user = await manager.save("users", userExists);
 
+// Audit Log
+await manager.save("audit_log", {
+    content: JSON.stringify(userExists),
+    objectType: "User",
+    objectKey: userExists.id,
+    action: "Save",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    changedBy: "scim",
+});
+
 result.data = await globals.Utils.UserSchema(req, user);
 result.contentType = "application/scim+json";
 
 complete();
-
