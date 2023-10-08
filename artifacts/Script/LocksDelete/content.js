@@ -1,7 +1,7 @@
 const { LessThan } = operators;
 
 // Initialize typeorm. Remember to include typeorm module in the script context
-const manager = modules.typeorm.getConnection().manager;
+const manager = p9.manager ? p9.manager : modules.typeorm.getConnection().manager;
 
 // Get the current date and time
 const hoursBack = 4;

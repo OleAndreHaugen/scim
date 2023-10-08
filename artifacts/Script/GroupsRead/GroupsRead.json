@@ -20,7 +20,7 @@
 	"entitySets": [],
 	"apis": [],
 	"name": "GroupsRead",
-	"ver": "23.4.30.939",
+	"ver": "23.10.8.856",
 	"description": null,
 	"content": "file:///content.js",
 	"useAsGlobalScript": false,

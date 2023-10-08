@@ -1,4 +1,4 @@
-const manager = modules.typeorm.getConnection().manager;
+const manager = p9.manager ? p9.manager : modules.typeorm.getConnection().manager;
 
 let options = {
     relations: ["users"],

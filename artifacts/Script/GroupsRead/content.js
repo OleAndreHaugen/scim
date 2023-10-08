@@ -1,6 +1,6 @@
 const { Like, Any, IsNull } = operators;
 
-const manager = modules.typeorm.getConnection().manager;
+const manager = p9.manager ? p9.manager : modules.typeorm.getConnection().manager;
 
 let mode = "List";
 let where = {};

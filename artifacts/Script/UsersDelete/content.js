@@ -1,4 +1,4 @@
-const manager = modules.typeorm.getConnection().manager;
+const manager = p9.manager ? p9.manager : modules.typeorm.getConnection().manager;
 
 // Find First
 const userExists = await manager.findOne("users", req.params.id);
