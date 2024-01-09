@@ -14,7 +14,7 @@
 	"entitySets": [],
 	"apis": [],
 	"name": "UsersDelete",
-	"ver": "23.10.8.856",
+	"ver": "24.1.9.164",
 	"description": null,
 	"content": "file:///content.js",
 	"useAsGlobalScript": false,

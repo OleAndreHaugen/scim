@@ -1,7 +1,7 @@
 const manager = p9.manager ? p9.manager : modules.typeorm.getConnection().manager;
 
 // Find First
-const userExists = await manager.findOne("users", req.params.id);
+const userExists = await manager.findOne("users", { where: { id: req.params.id } });
 
 if (!userExists) {
     result.data = "No user found";
@@ -10,7 +10,7 @@ if (!userExists) {
 }
 
 // Delete User
-const userDeleted = await manager.delete("users", req.params.id);
+const userDeleted = await manager.delete("users", { id: req.params.id });
 
 // Audit Log
 await manager.save("audit_log", {
