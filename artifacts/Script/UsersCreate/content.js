@@ -69,8 +69,13 @@ if (req.body?.groups) {
 
         if (groupExisting) {
             if (!groupExisting.users) groupExisting.users = [];
-            groupExisting.users.push(createRec);
-            await manager.save("department", groupExisting);
+
+            const groupUserExist = groupExisting.users.find((group) => group.id === createRec.id);
+            
+            if (!groupUserExist) {
+                groupExisting.users.push(createRec);
+                await manager.save("department", groupExisting);
+            }
         }
     }
 }

@@ -34,7 +34,14 @@ if (req.body?.Operations) {
                 for (i = 0; i < Operation.value.length; i++) {
                     const member = Operation.value[i];
                     const user = await manager.findOne("users", { where: { id: member.value } });
-                    if (user) groupExists.users.push(user);
+
+                    if (user) {
+                        const groupUserExist = groupExists.users.find(
+                            (group) => group.id === user.id
+                        );
+
+                        if (!groupUserExist) groupExists.users.push(user);
+                    }
                 }
                 break;
 

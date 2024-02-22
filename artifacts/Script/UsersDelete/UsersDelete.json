@@ -16,6 +16,7 @@
 	"name": "UsersDelete",
 	"ver": "24.1.9.164",
 	"description": null,
+	"folder": null,
 	"content": "file:///content.js",
 	"useAsGlobalScript": false,
 	"transpiledContent": null,

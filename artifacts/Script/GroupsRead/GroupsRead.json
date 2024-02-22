@@ -22,6 +22,7 @@
 	"name": "GroupsRead",
 	"ver": "23.12.14.749",
 	"description": null,
+	"folder": null,
 	"content": "file:///content.js",
 	"useAsGlobalScript": false,
 	"transpiledContent": null,

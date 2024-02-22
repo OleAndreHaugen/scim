@@ -16,6 +16,7 @@
 	"name": "LocksDelete",
 	"ver": "23.10.8.856",
 	"description": null,
+	"folder": null,
 	"content": "file:///content.js",
 	"useAsGlobalScript": false,
 	"transpiledContent": null,

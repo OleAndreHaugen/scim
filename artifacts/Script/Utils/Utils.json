@@ -15,6 +15,7 @@
 	"name": "Utils",
 	"ver": "23.4.30.938",
 	"description": null,
+	"folder": null,
 	"content": "file:///content.js",
 	"useAsGlobalScript": true,
 	"transpiledContent": null,
