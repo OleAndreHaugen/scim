@@ -14,7 +14,7 @@
 	"entitySets": [],
 	"apis": [],
 	"name": "UsersDelete",
-	"ver": "24.1.9.164",
+	"ver": "24.03.08.0914",
 	"description": null,
 	"folder": null,
 	"content": "file:///content.js",

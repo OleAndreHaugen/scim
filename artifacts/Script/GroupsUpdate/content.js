@@ -29,6 +29,8 @@ if (req.body?.Operations) {
     for (iOp = 0; iOp < req.body.Operations.length; iOp++) {
         const Operation = req.body.Operations[iOp];
 
+        groupExists = await manager.findOne("department", options);
+
         switch (Operation.op) {
             case "add":
                 for (i = 0; i < Operation.value.length; i++) {
@@ -57,17 +59,20 @@ if (req.body?.Operations) {
             default:
                 break;
         }
+
+        // Update Group
+        await manager.save("department", groupExists);
     }
 }
 
-// Update User
-const group = await manager.save("department", groupExists);
+const group = await manager.findOne("department", options);
 
 // Audit Log
 await manager.save("audit_log", {
-    content: JSON.stringify(groupExists),
+    content: JSON.stringify(group),
     objectType: "Department",
-    objectKey: groupExists.id,
+    objectKey: group.id,
+    objectName: group.name,
     action: "Save",
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -75,6 +80,7 @@ await manager.save("audit_log", {
 });
 
 result.data = await globals.Utils.GroupSchema(req, group);
+result.data = group;
 result.contentType = "application/scim+json";
 
 complete();

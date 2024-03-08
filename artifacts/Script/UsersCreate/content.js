@@ -71,7 +71,7 @@ if (req.body?.groups) {
             if (!groupExisting.users) groupExisting.users = [];
 
             const groupUserExist = groupExisting.users.find((group) => group.id === createRec.id);
-            
+
             if (!groupUserExist) {
                 groupExisting.users.push(createRec);
                 await manager.save("department", groupExisting);
@@ -91,6 +91,7 @@ await manager.save("audit_log", {
     content: JSON.stringify(user),
     objectType: "User",
     objectKey: "New",
+    objectName: user.name,
     action: "Save",
     createdAt: new Date(),
     updatedAt: new Date(),

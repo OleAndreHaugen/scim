@@ -17,6 +17,7 @@ await manager.save("audit_log", {
     content: JSON.stringify(userExists),
     objectType: "User",
     objectKey: userExists.id,
+    objectName: userExists.name,
     action: "Delete",
     createdAt: new Date(),
     updatedAt: new Date(),
