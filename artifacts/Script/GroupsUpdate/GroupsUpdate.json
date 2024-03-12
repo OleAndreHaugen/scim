@@ -20,7 +20,7 @@
 	"entitySets": [],
 	"apis": [],
 	"name": "GroupsUpdate",
-	"ver": "24.03.08.1244",
+	"ver": "24.03.12.1305",
 	"description": null,
 	"folder": null,
 	"content": "file:///content.js",
