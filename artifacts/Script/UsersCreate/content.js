@@ -14,8 +14,12 @@ if (req.body?.active === true) userCreate.locked = false;
 if (req.body?.name?.formatted) userCreate.name = req.body.name.formatted;
 if (req.body?.userName) userCreate.username = req.body.userName;
 
+const defaultLanguage = (await manager.findOne('customizing', {where: {}, select: ['defaultLanguage']}))?.['defaultLanguage'];
+
 if (req.body?.preferredLanguage) {
     userCreate.language = req.body.preferredLanguage;
+} else if (typeof defaultLanguage === 'string' && defaultLanguage.length > 0) {
+    userCreate.language = defaultLanguage;
 } else {
     userCreate.language = "EN";
 }
