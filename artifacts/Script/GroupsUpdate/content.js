@@ -7,7 +7,13 @@ let options = {
     },
 };
 
-async function executeGroupUpdate(tries = 0) {
+const NUMBER_OF_RETRIES = 20;
+const DEFAULT_BACKOFF_MIN = 10;
+const DEFAULT_BACKOFF_MAX = 20;
+
+const BACKOFF = Math.floor(Math.random() * (DEFAULT_BACKOFF_MAX - DEFAULT_BACKOFF_MIN + 1) + DEFAULT_BACKOFF_MIN);
+
+async function executeGroupUpdate(retries = NUMBER_OF_RETRIES, backoff = BACKOFF) {
     const queryRunner = manager.connection.createQueryRunner();
     try {
         
@@ -84,8 +90,9 @@ async function executeGroupUpdate(tries = 0) {
     } catch (e) {
         await rollbackAndRelease(queryRunner);
         // Try again if we get a transactional error       
-        if (tries < 10 && e.code === '40001') {
-            return await executeGroupUpdate(++tries);
+        if (retries > 0 && (e.code === '40001' || e.code === 'EREQUEST')) {
+            await new Promise(resolve => setTimeout(resolve, backoff));
+            return await executeGroupUpdate(retries - 1, backoff * 2);
         }
         return e;
     }
