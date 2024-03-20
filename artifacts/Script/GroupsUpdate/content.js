@@ -18,13 +18,14 @@ async function executeGroupUpdate(retries = NUMBER_OF_RETRIES, backoff = BACKOFF
     try {
         
         await queryRunner.connect();
-        await queryRunner.startTransaction("SERIALIZABLE");
+        await queryRunner.startTransaction("READ COMMITTED");
 
         let groupExists = await queryRunner.manager.findOne("department", options);
 
         if (!groupExists) {
             result.data = "No group found";
             result.statusCode = 404;
+            await queryRunner.release();
             return complete();
         }
 
