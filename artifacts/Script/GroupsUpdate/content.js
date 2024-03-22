@@ -1,79 +1,72 @@
 const manager = p9.manager ? p9.manager : modules.typeorm.getConnection().manager;
 
-let options = {
-    relations: ["users"],
-    where: {
-        id: req.params.id,
-    },
-};
+const groupId = req.params.id;
 
-const NUMBER_OF_RETRIES = 20;
-const DEFAULT_BACKOFF_MIN = 10;
-const DEFAULT_BACKOFF_MAX = 20;
-
-const BACKOFF = Math.floor(Math.random() * (DEFAULT_BACKOFF_MAX - DEFAULT_BACKOFF_MIN + 1) + DEFAULT_BACKOFF_MIN);
-
-async function executeGroupUpdate(retries = NUMBER_OF_RETRIES, backoff = BACKOFF) {
-    const queryRunner = manager.connection.createQueryRunner();
+async function executeGroupUpdate() {
     try {
-        
-        await queryRunner.connect();
-        await queryRunner.startTransaction("READ COMMITTED");
-
-        let groupExists = await queryRunner.manager.findOne("department", options);
-
-        if (!groupExists) {
-            result.data = "No group found";
-            result.statusCode = 404;
-            await queryRunner.release();
-            return complete();
-        }
-
-        // Merge Data
-        if (req.body?.displayName) groupExists.name = req.body?.displayName;
-
-        groupExists.updatedAt = new Date();
-        groupExists.changedBy = "scim";
-
-        if (!groupExists.users) groupExists.users = [];
-
         // Operations
         if (req.body?.Operations) {
-            for (iOp = 0; iOp < req.body.Operations.length; iOp++) {
-                const Operation = req.body.Operations[iOp];
-
-                switch (Operation.op) {
+            for (const operation of req.body.Operations) {
+                switch (operation.op) {
                     case "add":
-                        for (i = 0; i < Operation.value.length; i++) {
-                            const member = Operation.value[i];
+                        for (const member of operation.value) {
                             const user = await manager.findOne("users", {
+                                relations: ["departments"],
                                 where: { id: member.value },
+                                select: {
+                                    id: true,
+                                    departments: {
+                                        id: true,
+                                    },
+                                },
                             });
 
-                            if (user) {
-                                const groupUserExist = groupExists.users.find(
-                                    (group) => group.id === user.id
-                                );
+                            if (!user) {
+                                log.error(`User with id '${member.value}' does not exist`);
+                                continue;
+                            }
 
-                                if (!groupUserExist) {
-                                    groupExists.users.push(user);
-                                }
+                            const isGroupAssigned = user.departments.find(
+                                (dep) => dep.id === groupId
+                            );
+                            if (!isGroupAssigned) {
+                                user.departments.push({
+                                    id: groupId,
+                                });
+
+                                await manager.save("users", user);
                             }
                         }
+
                         break;
 
                     case "remove":
-                        for (i = 0; i < Operation.value.length; i++) {
-                            const member = Operation.value[i];
+                        for (const member of operation.value) {
+                            const user = await manager.findOne("users", {
+                                relations: ["departments"],
+                                where: { id: member.value },
+                                select: {
+                                    id: true,
+                                    departments: {
+                                        id: true,
+                                    },
+                                },
+                            });
 
-                            const groupUserExist = groupExists.users.find(
-                                (group) => group.id === member.value
+                            if (!user) {
+                                log.error(`User with id '${member.value}' does not exist`);
+                                continue;
+                            }
+
+                            const isGroupAssigned = user.departments.find(
+                                (dep) => dep.id === groupId
                             );
 
-                            if (groupUserExist) {
-                                groupExists.users = groupExists.users.filter(
-                                    (user) => user.id !== member.value
+                            if (isGroupAssigned) {
+                                user.departments = user.departments.filter(
+                                    (dep) => dep.id !== groupId
                                 );
+                                await manager.save("users", user);
                             }
                         }
                         break;
@@ -83,18 +76,7 @@ async function executeGroupUpdate(retries = NUMBER_OF_RETRIES, backoff = BACKOFF
                 }
             }
         }
-
-        // Update Group
-        await queryRunner.manager.save("department", groupExists);
-        await queryRunner.commitTransaction();
-        await queryRunner.release();
     } catch (e) {
-        await rollbackAndRelease(queryRunner);
-        // Try again if we get a transactional error       
-        if (retries > 0 && (e.code === '40001' || e.code === 'EREQUEST')) {
-            await new Promise(resolve => setTimeout(resolve, backoff));
-            return await executeGroupUpdate(retries - 1, backoff * 2);
-        }
         return e;
     }
 }
@@ -102,12 +84,32 @@ async function executeGroupUpdate(retries = NUMBER_OF_RETRIES, backoff = BACKOFF
 const error = await executeGroupUpdate();
 if (error) {
     result.statusCode = 500;
-    result.data = error;
+    result.data = { message: error.message };
     return complete();
 }
 
+const group = await manager.findOne("department", {
+    relations: ["users"],
+    where: {
+        id: groupId,
+    },
+    select: {
+        id: true,
+        name: true,
+        createdAt: true,
+        updatedAt: true,
+        users: {
+            id: true,
+            username: true,
+        },
+    },
+});
 
-const group = await manager.findOne("department", options);
+if (!group) {
+    result.statusCode = 404;
+    result.data = { message: "Group not found" };
+    return complete();
+}
 
 // Audit Log
 await manager.save("audit_log", {
@@ -125,12 +127,3 @@ result.data = await globals.Utils.GroupSchema(req, group);
 result.contentType = "application/scim+json";
 
 complete();
-
-async function rollbackAndRelease(queryRunner) {
-    try {        
-        await queryRunner.rollbackTransaction();
-        await queryRunner.release();        
-    } catch (e) {
-        await queryRunner.release();
-    }
-}
