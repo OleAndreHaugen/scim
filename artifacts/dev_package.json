@@ -9,7 +9,6 @@
 	"description": "SCIM 2.0 Adapter",
 	"ver": "24.05.13.1138",
 	"enableCICD": true,
-	"excludeTemplateFiles": false,
 	"apps": [],
 	"api": [
 		{
