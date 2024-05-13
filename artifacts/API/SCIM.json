@@ -307,7 +307,7 @@
 	"documentation": [],
 	"name": "SCIM",
 	"endpoint": "/api/serverscript/scim",
-	"ver": "23.4.12.2014",
+	"ver": "24.05.13.1132",
 	"version": "1.0",
 	"description": null,
 	"mediaType": "application/scim.json",
@@ -328,5 +328,11 @@
 	"package": "c1672a81-c0ee-443f-8c82-5a1f7fbe4989",
 	"apiGroup": "2665b916-5881-4a57-87b5-67e60d0227af",
 	"apiFormat": 0,
-	"roles": []
+	"roles": [
+		{
+			"id": "a1774b96-0b11-ef11-b3b1-e8c829417d3b",
+			"name": "scim-admin",
+			"ver": "24.05.13.1131"
+		}
+	]
 }

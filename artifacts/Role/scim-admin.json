@@ -1,0 +1,10 @@
+{
+	"id": "a1774b96-0b11-ef11-b3b1-e8c829417d3b",
+	"createdAt": "2024-05-13T09:31:34.603Z",
+	"createdBy": "svein.gunnar.larsen@neptune-software.com",
+	"name": "scim-admin",
+	"description": null,
+	"ver": "24.05.13.1131",
+	"package": "c1672a81-c0ee-443f-8c82-5a1f7fbe4989",
+	"acl": []
+}
