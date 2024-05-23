@@ -1,0 +1,21 @@
+{
+	"id": "fe40688d-0719-ef11-b3b3-e8c829417d3b",
+	"createdAt": "2024-05-23T13:22:50.963Z",
+	"createdBy": "svein.gunnar.larsen@neptune-software.com",
+	"name": "scim-admin",
+	"description": null,
+	"ver": "24.05.23.1523",
+	"parent": null,
+	"isExternal": false,
+	"idpSource": "local",
+	"idpSourceId": null,
+	"idpSourceKey": null,
+	"package": "c1672a81-c0ee-443f-8c82-5a1f7fbe4989",
+	"roles": [
+		{
+			"id": "a1774b96-0b11-ef11-b3b1-e8c829417d3b",
+			"name": "scim-admin",
+			"ver": "24.05.13.1131"
+		}
+	]
+}

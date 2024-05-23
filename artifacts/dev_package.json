@@ -9,6 +9,7 @@
 	"description": "SCIM 2.0 Adapter",
 	"ver": "24.05.13.1138",
 	"enableCICD": true,
+	"excludeTemplateFiles": false,
 	"apps": [],
 	"api": [
 		{
@@ -117,7 +118,13 @@
 	"systems": [],
 	"doc": [],
 	"wf_notifications": [],
-	"department": [],
+	"department": [
+		{
+			"id": "fe40688d-0719-ef11-b3b3-e8c829417d3b",
+			"name": "scim-admin",
+			"description": null
+		}
+	],
 	"script_scheduler": [],
 	"wf_definition": [],
 	"connector": [],
