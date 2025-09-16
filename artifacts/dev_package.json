@@ -7,7 +7,7 @@
 	},
 	"name": "neptunesoftware-scim",
 	"description": "SCIM 2.0 Adapter",
-	"ver": "24.05.13.1138",
+	"ver": "25.09.16.1538",
 	"enableCICD": true,
 	"apps": [],
 	"api": [
