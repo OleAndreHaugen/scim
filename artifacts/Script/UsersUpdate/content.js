@@ -57,6 +57,11 @@ try {
     await queryRunner.release();
 } catch (e) {
     await rollbackAndRelease(queryRunner);
+    const msg = "Failed to update user";
+    log.error(msg, e);
+    result.data = msg;
+    result.statusCode = 500;
+    return complete();
 }
 
 // Get Updated User
@@ -87,3 +92,4 @@ async function rollbackAndRelease(queryRunner) {
         await queryRunner.release();
     }
 }
+
