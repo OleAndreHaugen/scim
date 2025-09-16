@@ -25,7 +25,7 @@
 	"entitySets": [],
 	"apis": [],
 	"name": "UsersUpdate",
-	"ver": "24.03.08.1249",
+	"ver": "25.09.16.1534",
 	"description": null,
 	"folder": null,
 	"content": "file:///content.js",
